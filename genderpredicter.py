@@ -1,14 +1,22 @@
 #hello
 from sklearn import tree
 
-inputData = [[200,80,41],[140,67,32],[190,89,40],[195,80,43],[150,65,35]
+#Used for training our tree
+#Order is [height(cm),weight(lbs),shoe size(US)]
+#height is done numerically without '
+#meaning 61 = 6ft 1 in
+inputData = [[185,165,10],[160,120,8],[180,160,11],[165,140,10],[150,130,9],
+			 [170,135,9],[200,180,13]
 			]
 
-outputData = ['male','female','male','male','female']
+#Also used for training
+outputData = ['male','female','male','male','female','female','male']
 
 clf = tree.DecisionTreeClassifier()
+#create the fit using our data sets
 clf = clf.fit(inputData,outputData)
 
-predict = clf.predict([[180,70,43]])
+#see how accurate our prediction is
+predict = clf.predict([[180,80,10]])
 
 print(predict)
